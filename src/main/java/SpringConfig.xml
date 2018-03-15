@@ -11,11 +11,11 @@
 		http://www.springframework.org/schema/data/jpa		http://www.springframework.org/schema/data/jpa/spring-jpa-1.2.xsd">
 
 
- <context:component-scan base-package="springdataonetone"></context:component-scan>
- <jpa:repositories base-package="springdataonetone"
+ <context:component-scan base-package="OneToMany"></context:component-scan>
+ <jpa:repositories base-package="OneToMany"
  entity-manager-factory-ref="entityManagerFactoryBean"></jpa:repositories>
  
- <bean id="main" class="springdataonetone.Main" />
+ <bean id="main" class="OneToMany.Main" />
  <!-- <bean id="retrieveLogic" class="com.javainterviewpoint.RetrieveLogic" /> -->
 
  <!--EntityManagerFactory -->
@@ -23,13 +23,14 @@
  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
    <property name="dataSource" ref="dataSource" />
    <!-- Now /META-INF/persistence.xml is no longer needed -->
-   <property name="packagesToScan" value="springdataonetone" />
+   <property name="packagesToScan" value="OneToMany" />
    <property name="jpaVendorAdapter">
       <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
    </property>
    <property name="jpaProperties">
      <props>
-       <prop key="hibernate.hbm2ddl.auto">update</prop>
+       <!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->
+        <prop key="spring.jpa.hibernate.ddl-auto"> create</prop>
        <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
      </props>
    </property>
@@ -39,7 +40,7 @@
 		destroy-method="close">
    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
    <property name="url"
-			value="jdbc:mysql://localhost:3306/springdatajpaonetoone" />
+			value="jdbc:mysql://localhost:3306/springdatajpaonetomany" />
    <property name="username" value="root" />
    <property name="password" value="15jun1993" />
  </bean>
