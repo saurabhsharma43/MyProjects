@@ -1,19 +1,24 @@
-package springdataonetone;
+package springdatajpamanytomany;
+
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 @Entity
-@Table(name="employee_address")
-public class Employee_Address {
+@Table(name="address")
+public class Address {
 	 @Id
 	    @Column(name = "ADDR_ID")
-	    @GeneratedValue
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int addrId;
 	    
 	    @Column(name="STREET")
@@ -25,16 +30,15 @@ public class Employee_Address {
 	    @Column(name="COUNTRY")
 	    private String country;
 	    
-	    @OneToOne(cascade= CascadeType.ALL)
-	    @JoinColumn(name = "EMP_ID")
-	    private Employee employee;
+	    @ManyToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="address")
+	    private Set<Employee> employee;
 
-	    public Employee_Address()
+	    public Address()
 	    {
 	        super();
 	    }
 
-	    public Employee_Address(int addrId, String street, String city, String state, String country, Employee employee)
+	    public Address(int addrId, String street, String city, String state, String country, Set<Employee> employee)
 	    {
 	        super();
 	        this.addrId = addrId;
@@ -95,14 +99,20 @@ public class Employee_Address {
 	        this.country = country;
 	    }
 
-	    public Employee getEmployee()
+	    public Set<Employee> getEmployee()
 	    {
 	        return employee;
 	    }
 
-	    public void setEmployee(Employee employee)
+	    public void setEmployee(Set<Employee> employee)
 	    {
 	        this.employee = employee;
 	    }
 
+	    @Override
+	    public String toString()
+	    {
+	        return "Address [addrId=" + addrId + ", street=" + street + ", city=" + city + ", state=" + state + ", country="
+	                + country + ", employee=" + employee + "]";
+	    }
 }
