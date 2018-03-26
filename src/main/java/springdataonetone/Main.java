@@ -30,7 +30,7 @@ public class Main {
 	        Employee employee = new Employee();
 	        employee.setEmpName("Saurabh");
 	        
-	        Employee_Address employeeAddress = new Employee_Address();
+	        EmployeeAddress employeeAddress = new EmployeeAddress();
 	        employeeAddress.setStreet("Noida");
 	        employeeAddress.setCity("Noida");
 	        employeeAddress.setCountry("India");
@@ -52,10 +52,10 @@ public class Main {
 	    public void retrieveEmployee()
 	    {
 	        // Get list of all Employee & Employee Address
-	        List<Employee_Address> empAddress = employeeRepository.findAll();
+	        List<EmployeeAddress> empAddress = employeeRepository.findAll();
 
 	        // Displaying the Employee details
-	        for (Employee_Address employeeAddress : empAddress)
+	        for (EmployeeAddress employeeAddress : empAddress)
 	        {
 	            System.out.println("*** Employee Details ***");
 

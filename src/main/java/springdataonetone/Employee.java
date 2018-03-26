@@ -18,14 +18,14 @@ public class Employee {
 	    private String empName;
 
 	    @OneToOne(mappedBy="employee")
-	    private Employee_Address employeeAddress;
+	    private EmployeeAddress employeeAddress;
 
 	    public Employee()
 	    {
 	        super();
 	    }
 
-	    public Employee(int empId, String empName, Employee_Address employeeAddress)
+	    public Employee(int empId, String empName, EmployeeAddress employeeAddress)
 	    {
 	        super();
 	        this.empId = empId;
@@ -53,12 +53,12 @@ public class Employee {
 	        this.empName = empName;
 	    }
 
-	    public Employee_Address getEmployeeAddress()
+	    public EmployeeAddress getEmployeeAddress()
 	    {
 	        return employeeAddress;
 	    }
 
-	    public void setEmployeeAddress(Employee_Address employeeAddress)
+	    public void setEmployeeAddress(EmployeeAddress employeeAddress)
 	    {
 	        this.employeeAddress = employeeAddress;
 	    }

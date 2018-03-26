@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="employee_address")
-public class Employee_Address {
+public class EmployeeAddress {
 	 @Id
 	    @Column(name = "ADDR_ID")
 	    @GeneratedValue
@@ -29,12 +29,12 @@ public class Employee_Address {
 	    @JoinColumn(name = "EMP_ID")
 	    private Employee employee;
 
-	    public Employee_Address()
+	    public EmployeeAddress()
 	    {
 	        super();
 	    }
 
-	    public Employee_Address(int addrId, String street, String city, String state, String country, Employee employee)
+	    public EmployeeAddress(int addrId, String street, String city, String state, String country, Employee employee)
 	    {
 	        super();
 	        this.addrId = addrId;
