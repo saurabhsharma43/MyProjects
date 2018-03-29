@@ -11,11 +11,11 @@
 		http://www.springframework.org/schema/data/jpa		http://www.springframework.org/schema/data/jpa/spring-jpa-1.2.xsd">
 
 
- <context:component-scan base-package="domain"></context:component-scan>
- <jpa:repositories base-package="domain"
+ <context:component-scan base-package="domain1"></context:component-scan>
+ <jpa:repositories base-package="domain1"
  entity-manager-factory-ref="entityManagerFactoryBean"></jpa:repositories>
  
- <bean id="main" class="domain.Main" />
+ <bean id="main" class="domain1.Main" />
  <!-- <bean id="retrieveLogic" class="com.javainterviewpoint.RetrieveLogic" /> -->
 
  <!--EntityManagerFactory -->
@@ -23,13 +23,13 @@
  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
    <property name="dataSource" ref="dataSource" />
    <!-- Now /META-INF/persistence.xml is no longer needed -->
-   <property name="packagesToScan" value="domain" />
+   <property name="packagesToScan" value="domain1" />
    <property name="jpaVendorAdapter">
       <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
    </property>
    <property name="jpaProperties">
      <props>
-        <prop key="hibernate.hbm2ddl.auto">create-and-update</prop> 
+        <prop key="hibernate.hbm2ddl.auto">update</prop> 
       <!--    <prop key="spring.jpa.hibernate.ddl-auto"> Update</prop> -->
        <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
      </props>
@@ -40,7 +40,7 @@
 		destroy-method="close">
    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
    <property name="url"
-			value="jdbc:mysql://localhost:3306/onetomanyinheritancebycon" />
+			value="jdbc:mysql://localhost:3306/onetomanyinheritancebysubclass" />
    <property name="username" value="root" />
    <property name="password" value="15jun1993" />
  </bean>

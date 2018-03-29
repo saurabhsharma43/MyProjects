@@ -1,18 +1,12 @@
-package domain;
+package domain1;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
 @Entity
 @Table(name="contractemployee")
-@AttributeOverrides({
-	
-@AttributeOverride(name="E_ID",column=@Column(name="E_ID")),
-@AttributeOverride(name="Ename",column=@Column(name="Ename"))
-})
+@PrimaryKeyJoinColumn(name="E_ID")
 public class ContractEmployee extends Employee {
 	@Column(name="pay_per_hour")
 	private float pay_per_hour;
@@ -43,7 +37,4 @@ public class ContractEmployee extends Employee {
 				+ ", getPay_per_hour()=" + getPay_per_hour() + ", getContract_duration()=" + getContract_duration()
 				+ "]";
 	}
-	
-
-
 }

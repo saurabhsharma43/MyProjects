@@ -1,4 +1,4 @@
-package domain;
+package domain1;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,20 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
-
 
 @Entity
 @Table(name="employee")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Employee {
 	@Id
-	
-	@GeneratedValue(strategy=GenerationType.TABLE,generator="increment")
-	@GenericGenerator(name="increment",strategy="increment")
-	
-	
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="E_ID")
 	private int eid;
 	@Column(name="Ename")
@@ -61,5 +54,4 @@ public class Employee {
 		return "Employee [eid=" + eid + ", name=" + name + ", department=" + department + ", getEid()=" + getEid()
 				+ ", getName()=" + getName() + ", getDepartment()=" + getDepartment() + "]";
 	}
-
 }

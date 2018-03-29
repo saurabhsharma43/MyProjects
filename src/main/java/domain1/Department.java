@@ -1,4 +1,4 @@
-package domain;
+package domain1;
 
 import java.util.Set;
 
@@ -12,15 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="department")
 public class Department {
-	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE,generator="increment")
-	@GenericGenerator(name="increment",strategy="increment")
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="Dept_ID")
 	private int deptid;
 	@Column(name="Dname")

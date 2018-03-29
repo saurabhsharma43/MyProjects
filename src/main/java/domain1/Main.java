@@ -1,4 +1,4 @@
-package domain;
+package domain1;
 
 import java.util.HashSet;
 import java.util.List;
@@ -6,8 +6,6 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-
 
 public class Main {
 	private static Main main;
@@ -21,11 +19,12 @@ public class Main {
 		
 		main=(Main)context.getBean("main");
 		
-		main.save();
-/*		main.update("Ramy",2);*/
-		//main.delete(5);
-		main.retrieveDepartment();
-		context.close();
+		//main.save();
+		//main.update("Ramya",2);
+		main.delete(1);
+		//main.employeerepo.deleteAll();
+		/*main.retrieveDepartment();
+		context.close();*/
 		
 	}
 
@@ -60,14 +59,14 @@ public class Main {
 		
 	}
 	
-/*	public void update(String name, int id)
+	/*public void update(String name, int id)
 	{
 		employeerepo.setUserInfoById(name, id);
-	}
+	}*/
 	public void delete(int id)
 	{
 		employeerepo.deleteInBulkById(id);	
-	}*/
+	}
 	
     
     public void retrieveDepartment()
@@ -116,4 +115,3 @@ public class Main {
 }
 }
 }
-
